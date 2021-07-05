@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Synth">
+
+    <FontFamily x:Key="RobotoBlack">pack://application;,,,/Fonts/#Roboto Black</FontFamily>
+    <FontFamily x:Key="RobotoBlackItalic">pack://application;,,,/Fonts/#Roboto Black Italic</FontFamily>
+    <FontFamily x:Key="RobotoBold">pack://application;,,,/Fonts/#Roboto Bold</FontFamily>
+    <FontFamily x:Key="RobotoBoldItalic">pack://application;,,,/Fonts/#Roboto Bold Italic</FontFamily>
+    <FontFamily x:Key="RobotoItalic">pack://application;,,,/Fonts/#Roboto Italic</FontFamily>
+    <FontFamily x:Key="RobotoLight">pack://application;,,,/Fonts/#Roboto Light</FontFamily>
+    <FontFamily x:Key="RobotoLightItalic">pack://application;,,,/Fonts/#Roboto Light Italic</FontFamily>
+    <FontFamily x:Key="RobotoMedium">pack://application;,,,/Fonts/#Roboto Medium</FontFamily>
+    <FontFamily x:Key="RobotoMediumItalic">pack://application;,,,/Fonts/#Roboto Medium Italic</FontFamily>
+    <FontFamily x:Key="RobotoRegular">pack://application;,,,/Fonts/#Roboto</FontFamily>
+    <FontFamily x:Key="RobotoThin">pack://application;,,,/Fonts/#Roboto Thin</FontFamily>
+    <FontFamily x:Key="RobotoThinItalic">pack://application;,,,/Fonts/#Roboto Thin Italic</FontFamily>
+	<FontFamily x:Key="FontAwesomeSolid">pack://application;,,,/Fonts/#Font Awesome 5 Free Solid</FontFamily>
+	<FontFamily x:Key="FontAwesomeRegular">pack://application;,,,/Fonts/#Font Awesome 5 Free Regular</FontFamily>
+    <FontFamily x:Key="Digital7">pack://application;,,,/Fonts/#Digital-7</FontFamily>
+    <FontFamily x:Key="Gigital7Mono">pack://application;,,,/Fonts/#Digital-7 Mono</FontFamily>
+    <FontFamily x:Key="Digital7MonoItalic">pack://application;,,,/Fonts/#Digital-7 MonoItalic</FontFamily>
+    <FontFamily x:Key="Digital7Italic">pack://application;,,,/Fonts/#Digital-7 Italic</FontFamily>
+    <FontFamily x:Key="LedLight">pack://application;,,,/Fonts/#LEDLIGHT</FontFamily>
+    <FontFamily x:Key="DSDigital">pack://application;,,,/Fonts/#DS-Digital</FontFamily>
+    <FontFamily x:Key="DSDigitalBold">pack://application;,,,/Fonts/#DS-Digital Bold</FontFamily>
+    <FontFamily x:Key="DSDigitalItalic">pack://application;,,,/Fonts/#DS-Digital Italic</FontFamily>
+    <FontFamily x:Key="DSDigitalBoldItalic">pack://application;,,,/Fonts/#DS-Digital Bold Italic</FontFamily>
+    
+    <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
+        <Setter Property="FontFamily" Value="{StaticResource DSDigital}" />
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
+        <Setter Property="FontFamily" Value="{StaticResource DSDigital}" />
+    </Style>
+
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}" />
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseStyle}" />
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseStyle}" />
+    <Style TargetType="{x:Type TabControl}" BasedOn="{StaticResource BaseStyle}" />
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}" />
+
+</ResourceDictionary>

@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Synth.FlangerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Synth"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border BorderThickness="0.5" BorderBrush="#6fdcf8" SnapsToDevicePixels="True" CornerRadius="0 30 0 30" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Border.Background>
+                <SolidColorBrush Color="{StaticResource GrayElevetion12dp}" Opacity="0.3"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="WaveBase" Style="{StaticResource COMBO}"  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:SignalType}}}" SelectedItem="{Binding SignalType}" Width="110" IsTextSearchEnabled="False"  Margin="10 0" VerticalAlignment="Center"/>
+                <local:KnobControl Label="Depth" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="100" DefaultValue="0" WheelStep="1" Bidirectional="False" VerticalAlignment="Top" Value="{Binding Depth, Mode=TwoWay}"/>
+                <local:KnobControl Label="Feedback" Margin="5 20 5 10" Width="55" Minimum="-100" Maximum="100" DefaultValue="0" WheelStep="1" Bidirectional="True" VerticalAlignment="Top" Value="{Binding FlangerFeedback, Mode=TwoWay}"/>
+                <local:KnobControl Label="Rate" Margin="5 20 5 10" Width="55" Minimum="1" Maximum="30" DefaultValue="1" Bidirectional="False" VerticalAlignment="Top" Value="{Binding Rate, Mode=TwoWay}"/>
+            </StackPanel>
+        </Border>
+        <Border CornerRadius="0 10 0 10"  Background="#6fdcf8" Opacity="0.3"/>
+        <Border CornerRadius="0 10 0 10"  Background="Transparent">
+            <TextBlock Margin="8" Text="Flanger" Width="60" FontSize="14" Foreground="White" FontFamily="{StaticResource DSDigitalItalic}"/>
+        </Border>
+    </Grid>
+</UserControl>

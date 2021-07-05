@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Synth">
+
+	<Color x:Key="GrayElevetion00dp">#121212</Color>
+	<SolidColorBrush x:Key="GrayElevetion00dpBrush" Color="{StaticResource GrayElevetion00dp}"/>
+
+	<Color x:Key="GrayElevetion01dp">#1E1E1E</Color>
+	<SolidColorBrush x:Key="GrayElevetion01dpBrush" Color="{StaticResource GrayElevetion01dp}"/>
+
+	<Color x:Key="GrayElevetion02dp">#222222</Color>
+	<SolidColorBrush x:Key="GrayElevetion02dpBrush" Color="{StaticResource GrayElevetion02dp}"/>
+
+	<Color x:Key="GrayElevetion03dp">#242424</Color>
+	<SolidColorBrush x:Key="GrayElevetion03dpBrush" Color="{StaticResource GrayElevetion03dp}"/>
+
+	<Color x:Key="GrayElevetion04dp">#272727</Color>
+	<SolidColorBrush x:Key="GrayElevetion04dpBrush" Color="{StaticResource GrayElevetion04dp}"/>
+
+	<Color x:Key="GrayElevetion06dp">#2C2C2C</Color>
+	<SolidColorBrush x:Key="GrayElevetion06dpBrush" Color="{StaticResource GrayElevetion06dp}"/>
+
+	<Color x:Key="GrayElevetion08dp">#2E2E2E</Color>
+	<SolidColorBrush x:Key="GrayElevetion08dpBrush" Color="{StaticResource GrayElevetion08dp}"/>
+
+	<Color x:Key="GrayElevetion12dp">#333333</Color>
+	<SolidColorBrush x:Key="GrayElevetion12dpBrush" Color="{StaticResource GrayElevetion12dp}"/>
+
+	<Color x:Key="GrayElevetion16dp">#353535</Color>
+	<SolidColorBrush x:Key="GrayElevetion16dpBrush" Color="{StaticResource GrayElevetion16dp}"/>
+
+	<Color x:Key="GrayElevetion24dp">#383838</Color>
+	<SolidColorBrush x:Key="GrayElevetion24dpBrush" Color="{StaticResource GrayElevetion24dp}"/>
+
+    <BitmapImage x:Key="Knob" UriSource="../Resources/Knob.png" />
+
+</ResourceDictionary>

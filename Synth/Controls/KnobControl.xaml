@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Synth.KnobControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Synth"
+             mc:Ignorable="d" 
+			 Loaded="KnobUserControl_Loaded" MouseDoubleClick="KnobUserControl_MouseDoubleClick" x:Name="uc"
+             MouseEnter="uc_MouseEnter">
+	<Viewbox Stretch="Uniform" MinWidth="55">
+		<Grid x:Name="KnobGrid" ClipToBounds="False" Width="240">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="240"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<Ellipse x:Name="Ellipse"
+                        HorizontalAlignment="Center" Height="240"
+                        VerticalAlignment="Center" Width="240"
+						MouseWheel="Ellipse_MouseWheel" MouseDown="Ellipse_MouseDown" MouseMove="Ellipse_MouseMove" MouseUp="Ellipse_MouseUp">
+				<Ellipse.Fill>
+					<ImageBrush RenderOptions.BitmapScalingMode="HighQuality" ImageSource="{StaticResource Knob}"/>
+				</Ellipse.Fill>
+			</Ellipse>
+			<Path Stroke="#6fdcf8" StrokeThickness="8">
+				<Path.Data>
+					<PathGeometry>
+						<PathFigure x:Name="ArcStart" StartPoint="120, 34">
+							<ArcSegment x:Name="ArcStop" Size="86,86" Point="34,120"/>
+						</PathFigure>
+					</PathGeometry>
+				</Path.Data>
+				<Path.Effect>
+					<DropShadowEffect Color="#6fdcf8" ShadowDepth="0" Direction="0" BlurRadius="20"  />
+				</Path.Effect>
+			</Path>
+			<Polyline x:Name="Pointer" Width="20" Height="20" HorizontalAlignment="Center" 
+							 VerticalAlignment="Top" 
+							 RenderTransformOrigin="0.5,1.0" 
+							 Margin="60" Points="0,18 10,0 20,18" Fill="{StaticResource GrayElevetion12dpBrush}" Opacity="0.8"/>
+			<TextBlock Grid.Row="1" 
+								TextWrapping="WrapWithOverflow" 
+								Text="{Binding Path=Label, ElementName=uc}" 
+								FontSize="55" 
+								HorizontalAlignment="Center" 
+								VerticalAlignment="Bottom"
+					   Foreground="White" FontFamily="{StaticResource DSDigital}"/>
+		</Grid>
+	</Viewbox>
+
+</UserControl>

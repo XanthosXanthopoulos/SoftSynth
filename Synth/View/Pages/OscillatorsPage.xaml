@@ -1,0 +1,60 @@
+﻿<local:BasePage x:TypeArguments="local:OscillatorPageViewModel"
+	  x:Class="Synth.OscillatorsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Synth"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="OscillatorsPage">
+    <Grid>
+        <Grid.RenderTransform>
+			<ScaleTransform x:Name="ScaleTr"/>
+		</Grid.RenderTransform>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" SharedSizeGroup="A"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition SharedSizeGroup="A"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+		<ListView Background="Transparent" ItemsSource="{Binding Oscillators}" Grid.RowSpan="2">
+			<ListView.ItemTemplate>
+				<DataTemplate DataType="{x:Type local:OscillatorViewModel}">
+                    <local:OscillatorControl Height="190" Margin="10 8" />
+                </DataTemplate>
+			</ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Focusable" Value="false"/>
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListBox.Template>
+                <ControlTemplate>
+                    <ItemsPresenter />
+                </ControlTemplate>
+            </ListBox.Template>
+        </ListView>
+        <local:ScreenControl WaveData="{Binding Waveform, Mode=TwoWay}" Grid.Column="1" Margin="10"/>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <local:DelayControl Margin="10 8"/>
+            <local:FlangerControl Margin="10 8"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.RowSpan="2">
+            <local:EnvelopeControl Margin="10 8"/>
+            <local:FilterControl Margin="10 8"/>
+            <local:FMPanelControl Margin="10 8"/>
+        </StackPanel>
+    </Grid>
+</local:BasePage>

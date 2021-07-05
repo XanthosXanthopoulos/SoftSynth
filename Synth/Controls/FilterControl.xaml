@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="Synth.FilterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Synth"
+             mc:Ignorable="d" 
+             d:DesignHeight="220" d:DesignWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border BorderThickness="0.5" BorderBrush="#6fdcf8" SnapsToDevicePixels="True" CornerRadius="0 30 0 30" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Border.Background>
+                <SolidColorBrush Color="{StaticResource GrayElevetion12dp}" Opacity="0.3"/>
+            </Border.Background>
+            <StackPanel>
+                <StackPanel Height="110" HorizontalAlignment="Right" Grid.Row="0" Orientation="Horizontal">
+                    <ComboBox Style="{StaticResource COMBO}" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:FilterType}}}" SelectedItem="{Binding FilterType}" Width="100" VerticalAlignment="Center" IsEditable="False" IsTextSearchEnabled="False" Margin="10"/>
+                    <local:KnobControl Label="Cutoff" Margin="5 20 5 10" Width="55" Minimum="20" Maximum="20000" DefaultValue="20000" WheelStep="100" Logarithmic="True" Bidirectional="False" VerticalAlignment="Top" Value="{Binding FilterCutoff, Mode=TwoWay}"/>
+                    <local:KnobControl Label="Resonance" Margin="5 20 5 10" Width="55" Minimum="50" Maximum="500" DefaultValue="50" Bidirectional="False" VerticalAlignment="Top" Value="{Binding FilterResonance, Mode=TwoWay}"/>
+                    <local:KnobControl Label="Amount" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="100" DefaultValue="0" Bidirectional="False" VerticalAlignment="Top" Value="{Binding FilterAmount, Mode=TwoWay}"/>
+                    <local:KnobControl Label="Overdrive" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="125" DefaultValue="100" Bidirectional="False" VerticalAlignment="Top" Value="{Binding FilterOverdrive, Mode=TwoWay}"/>
+                </StackPanel>
+                <Line Margin="10 0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Stroke="#6fdcf8" X2="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" SnapsToDevicePixels="True" StrokeThickness="0.5" Opacity="0.5"/>
+                <StackPanel Height="110" HorizontalAlignment="Right" Grid.Row="1" Orientation="Horizontal">
+                    <local:KnobControl Label="Mod" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="100" DefaultValue="0" Bidirectional="False" VerticalAlignment="Top" Value="{Binding FilterModulationAmount, Mode=TwoWay}"/>
+                    <local:KnobControl Label="Attack" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="1000" DefaultValue="0" WheelStep="10" Bidirectional="False" VerticalAlignment="Top" Value="{Binding FilterAttack, Mode=TwoWay}"/>
+                    <local:KnobControl Label="Decay" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="1000" DefaultValue="0" WheelStep="10" Bidirectional="False" VerticalAlignment="Top" Value="{Binding FilterDecay, Mode=TwoWay}"/>
+                    <local:KnobControl Label="Sustain" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="100" DefaultValue="100" Bidirectional="False" VerticalAlignment="Top" Value="{Binding FilterSustain, Mode=TwoWay}"/>
+                    <local:KnobControl Label="Release" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="1000" DefaultValue="0" WheelStep="10" Bidirectional="False" VerticalAlignment="Top" Value="{Binding FilterRelease, Mode=TwoWay}"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border CornerRadius="0 10 0 10"  Background="#6fdcf8" Opacity="0.3"/>
+        <Border CornerRadius="0 10 0 10"  Background="Transparent">
+            <TextBlock Margin="8" Text="{Binding FilterName}" Width="90" FontSize="14" Foreground="White" FontFamily="{StaticResource DSDigitalItalic}"/>
+        </Border>
+    </Grid>
+</UserControl>

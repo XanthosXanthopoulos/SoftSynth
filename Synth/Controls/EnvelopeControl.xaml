@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Synth.EnvelopeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Synth"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="400"
+             x:Name="uc">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border BorderThickness="0.5" BorderBrush="#6fdcf8" SnapsToDevicePixels="True" CornerRadius="0 30 0 30" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Border.Background>
+                <SolidColorBrush Color="{StaticResource GrayElevetion12dp}" Opacity="0.3"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <local:KnobControl Label="Attack" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="1000" DefaultValue="0" WheelStep="10" Bidirectional="False" VerticalAlignment="Top" Value="{Binding Attack, Mode=TwoWay}"/>
+                <local:KnobControl Label="Decay" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="1000" DefaultValue="0" WheelStep="10" Bidirectional="False" VerticalAlignment="Top" Value="{Binding Decay, Mode=TwoWay}"/>
+                <local:KnobControl Label="Sustain" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="100" DefaultValue="100" Bidirectional="False" VerticalAlignment="Top" Value="{Binding Sustain, Mode=TwoWay}"/>
+                <local:KnobControl Label="Release" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="1000" DefaultValue="0" WheelStep="10" Bidirectional="False" VerticalAlignment="Top" Value="{Binding Release, Mode=TwoWay}"/>
+            </StackPanel>
+        </Border>
+        <Border CornerRadius="0 10 0 10"  Background="#6fdcf8" Opacity="0.3"/>
+        <Border CornerRadius="0 10 0 10"  Background="Transparent">
+            <TextBlock Margin="8" Text="{Binding EnvelopeName}" Width="80" FontSize="14" Foreground="White" FontFamily="{StaticResource DSDigitalItalic}"/>
+        </Border>
+    </Grid>
+</UserControl>

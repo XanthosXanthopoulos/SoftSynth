@@ -1,0 +1,30 @@
+﻿<Window x:Class="Synth.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Synth"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="717" Width="1460"
+		KeyDown="Window_KeyDown" KeyUp="Window_KeyUp" Closing="Window_Closing" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Offset="0" Color="Black" />
+                <GradientStop Offset="1" Color="{StaticResource GrayElevetion24dp}" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+        <Image Grid.ColumnSpan="2" Grid.RowSpan="2" Source="C:\Users\root\Desktop\Desert_Sand_Texture-1203@0,25x.png" Opacity="0.6" Stretch="UniformToFill"/>
+        <TextBlock HorizontalAlignment="Center" Text="Digitizer" Foreground="White" Margin="10 10 10 18" FontFamily="{StaticResource LedLight}" FontSize="30" Opacity="0.8"/>
+        <TextBlock HorizontalAlignment="Center" Margin="10 0 10 10" Text="virtual analog synthesizer" Foreground="White" FontSize="12" FontFamily="{StaticResource DSDigital}" Opacity="0.8" VerticalAlignment="Bottom"/>
+        <local:PageHost Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" CurrentPage="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:ApplicationPageValueConverter}}" />
+	</Grid>
+</Window>

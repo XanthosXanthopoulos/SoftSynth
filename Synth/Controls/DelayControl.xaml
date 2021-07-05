@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Synth.DelayControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Synth"
+             mc:Ignorable="d" 
+             d:DesignHeight="120" d:DesignWidth="265">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border BorderThickness="0.5" BorderBrush="#6fdcf8" SnapsToDevicePixels="True" CornerRadius="0 30 0 30" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Border.Background>
+                <SolidColorBrush Color="{StaticResource GrayElevetion12dp}" Opacity="0.3"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <local:KnobControl Label="Delay" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="2000" DefaultValue="0" WheelStep="10" Bidirectional="False" VerticalAlignment="Top" Value="{Binding Delay, Mode=TwoWay}"/>
+                <local:KnobControl Label="Feedback" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="100" DefaultValue="0" WheelStep="1" Bidirectional="False" VerticalAlignment="Top" Value="{Binding Feedback, Mode=TwoWay}"/>
+                <local:KnobControl Label="Stereo Offset" Margin="5 20 5 10" Width="55" Minimum="-100" Maximum="100" DefaultValue="0" Bidirectional="True" VerticalAlignment="Top" Value="{Binding StereoOffset, Mode=TwoWay}"/>
+                <local:KnobControl Label="Wet MIX" Margin="5 20 5 10" Width="55" Minimum="0" Maximum="100" DefaultValue="0" WheelStep="1" Bidirectional="False" VerticalAlignment="Top" Value="{Binding WetDryMix, Mode=TwoWay}"/>
+            </StackPanel>
+        </Border>
+        <Border CornerRadius="0 10 0 10"  Background="#6fdcf8" Opacity="0.3"/>
+        <Border CornerRadius="0 10 0 10"  Background="Transparent">
+            <TextBlock Margin="8" Text="Delay" Width="60" FontSize="14" Foreground="White" FontFamily="{StaticResource DSDigitalItalic}"/>
+        </Border>
+    </Grid>
+</UserControl>
